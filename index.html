@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مبادرة التوجيه المهني | متوسطة الفضيلة الأولى</title>
-    <!-- خط جميل للعربية -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -22,7 +20,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -41,12 +39,12 @@
         }
 
         .school-info h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
         }
 
         .school-info h2 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 400;
             opacity: 0.9;
         }
@@ -61,176 +59,234 @@
             box-shadow: 0 4px 0 #b38f00;
         }
 
-        /* شبكة القيم (البطاقات الرئيسية) */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .value-card {
+        /* بطاقة المشاركة الرئيسية */
+        .participation-card {
             background: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 8px solid;
-            transition: transform 0.2s;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
         }
 
-        .value-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .value-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .value-title {
+        .section-title {
             font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .value-desc {
-            color: #555;
+            color: #1e3c72;
             margin-bottom: 20px;
-            line-height: 1.6;
-            background: #f9f9f9;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .select-group {
-            margin-bottom: 15px;
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
         }
 
         select, input[type="text"], textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 18px;
             border: 2px solid #e0e0e0;
             border-radius: 15px;
             font-size: 1rem;
-            margin-top: 5px;
             transition: 0.2s;
+            background: #fafafa;
         }
 
         select:focus, input:focus, textarea:focus {
             border-color: #2a5298;
             outline: none;
+            background: white;
+        }
+
+        /* منطقة عرض وصف القيمة */
+        .value-hint {
+            background: #e8f0fe;
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border-right: 5px solid #2a5298;
+        }
+
+        .value-hint h4 {
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+
+        .value-hint p {
+            color: #444;
+            font-size: 0.95rem;
         }
 
         .file-upload {
-            border: 2px dashed #ccc;
-            padding: 15px;
-            border-radius: 15px;
+            border: 2px dashed #2a5298;
+            padding: 20px;
+            border-radius: 20px;
             text-align: center;
             cursor: pointer;
-            margin: 15px 0;
-            background: #fafafa;
+            margin: 20px 0;
+            background: #f8fbff;
+            transition: 0.2s;
         }
 
         .file-upload:hover {
-            border-color: #2a5298;
-            background: #eef5ff;
+            background: #e3efff;
+        }
+
+        .file-upload i {
+            font-size: 2rem;
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+
+        .preview-area {
+            margin-top: 15px;
+            text-align: center;
         }
 
         .preview-area img, .preview-area video {
             max-width: 100%;
-            max-height: 150px;
-            border-radius: 10px;
-            margin-top: 10px;
+            max-height: 200px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .submit-btn {
-            background: #2a5298;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
             border: none;
-            padding: 15px;
+            padding: 16px 30px;
             width: 100%;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
             cursor: pointer;
             transition: 0.2s;
+            margin-top: 10px;
         }
 
         .submit-btn:hover {
-            background: #1e3c72;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(42,82,152,0.3);
         }
 
-        /* لوحة التحكم */
-        .admin-panel {
+        /* قسم لوحة التحكم */
+        .admin-section {
             background: white;
-            border-radius: 20px;
-            padding: 20px;
-            margin-top: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         .admin-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
         }
 
-        .admin-header input {
-            width: auto;
-            flex: 1;
-            min-width: 200px;
+        .admin-header h3 {
+            color: #1e3c72;
+            font-size: 1.4rem;
         }
 
-        .admin-header button {
-            background: #333;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-        }
-
-        .posts-feed {
+        .admin-controls {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            gap: 10px;
+            flex: 1;
+            flex-wrap: wrap;
+        }
+
+        .admin-controls input {
+            flex: 2;
+            min-width: 180px;
+            padding: 12px 15px;
+        }
+
+        .admin-controls button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: #2a5298;
+            color: white;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-warning {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .admin-panel-content {
+            border-top: 2px solid #eee;
+            padding-top: 20px;
         }
 
         .post-item {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 15px;
+            margin-bottom: 15px;
             border-right: 5px solid #2a5298;
         }
 
-        .post-meta {
+        .post-header {
             display: flex;
-            gap: 20px;
-            color: #666;
-            font-size: 0.9rem;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 10px;
             flex-wrap: wrap;
         }
 
-        .post-content {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #ddd;
+        .post-badge {
+            background: #2a5298;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+
+        .post-meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .post-text {
+            margin: 15px 0;
+            line-height: 1.6;
         }
 
         .media-gallery {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin-top: 10px;
         }
 
         .media-gallery img, .media-gallery video {
-            max-width: 150px;
-            max-height: 150px;
+            max-width: 120px;
+            max-height: 120px;
             border-radius: 10px;
             border: 2px solid white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -242,27 +298,33 @@
             color: #dc3545;
             cursor: pointer;
             font-size: 1.2rem;
-            float: left;
+            padding: 5px 10px;
         }
 
         .hidden {
-            display: none;
+            display: none !important;
+        }
+
+        .status-message {
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
         .footer-note {
             text-align: center;
             margin-top: 20px;
-            color: #777;
+            color: #888;
+            font-size: 0.9rem;
         }
 
-        /* تحسينات الجوال */
         @media (max-width: 600px) {
             .header {
                 flex-direction: column;
                 text-align: center;
             }
-            .school-info h1 {
-                font-size: 1.5rem;
+            .admin-controls {
+                flex-direction: column;
             }
         }
     </style>
@@ -270,7 +332,7 @@
 <body>
 
 <div class="container">
-    <!-- رأس الصفحة: اسم المدرسة والمبادرة -->
+    <!-- رأس الصفحة -->
     <div class="header">
         <div class="school-info">
             <h1>🏫 متوسطة الفضيلة الأولى</h1>
@@ -281,168 +343,163 @@
         </div>
     </div>
 
-    <!-- شرح المبادرة من وحي الدليل -->
-    <div style="background: #e8f0fe; padding: 15px; border-radius: 50px; margin-bottom: 25px; text-align: center; color: #1e3c72;">
-        <i class="fas fa-lightbulb"></i> بناءً على دليل التوجيه المهني للمرحلة المتوسطة: اختر القيمة التي تريد تنميتها واكتشف مهاراتك للمستقبل!
-    </div>
-
-    <!-- القيم الثلاث المستخلصة من الدليل -->
-    <div class="values-grid">
-        <!-- القيمة 1: إدارة الوقت -->
-        <div class="value-card" style="border-color: #4CAF50;">
-            <div class="value-icon">⏳</div>
-            <div class="value-title">أنا قائد وقتي</div>
-            <div class="value-desc">
-                <strong>من الدليل:</strong> "إدارة الوقت أسلوب فعال لزيادة الدافعية للإنجاز." <br>
-                <strong>المهمة:</strong> صوّر جدول مذاكرتك لهذا اليوم، أو اكتب قائمة المهام التي أنجزتها قبل النوم.
-            </div>
-            <div class="select-group">
-                <select id="time-class">
-                    <option value="">-- اختر صفك --</option>
-                    <option>أول متوسط ١</option><option>أول متوسط ٢</option><option>أول متوسط ٣</option>
-                    <option>ثاني متوسط ١</option><option>ثاني متوسط ٢</option><option>ثاني متوسط ٣</option>
-                    <option>ثالث متوسط ١</option><option>ثالث متوسط ٢</option>
-                </select>
-            </div>
-            <input type="text" id="time-student" placeholder="اسمك (اختياري)" style="margin-bottom: 10px;">
-            <textarea id="time-text" placeholder="ماذا أنجزت اليوم؟ أو صف كيف نظمت وقتك..."></textarea>
-            <div class="file-upload" onclick="document.getElementById('time-file').click()">
-                <i class="fas fa-cloud-upload-alt"></i> اضغط لرفع صورة أو فيديو لجدولك
-                <input type="file" id="time-file" accept="image/,video/" style="display: none;" onchange="previewMedia(event, 'time-preview')">
-            </div>
-            <div id="time-preview" class="preview-area"></div>
-            <button class="submit-btn" onclick="submitPost('time')"><i class="fas fa-paper-plane"></i> شارك في قيمة إدارة الوقت</button>
-        </div>
-
-        <!-- القيمة 2: التواصل الفعال -->
-        <div class="value-card" style="border-color: #2196F3;">
-            <div class="value-icon">🗣️</div>
-            <div class="value-title">أذن صاغية ولسان فصيح</div>
-            <div class="value-desc">
-                <strong>من الدليل:</strong> "استخدام لغة الجسد والإنصات وتلخيص الفكرة." <br>
-                <strong>المهمة:</strong> احكِ لنا عن موقف استخدمت فيه التواصل لحل مشكلة مع صديق أو معلم، أو صوّر فيديو قصير تنصح فيه زملاءك بفن الحوار.
-            </div>
-            <div class="select-group">
-                <select id="comm-class">
-                    <option value="">-- اختر صفك --</option>
-                    <option>أول متوسط ١</option><option>أول متوسط ٢</option><option>أول متوسط ٣</option>
-                    <option>ثاني متوسط ١</option><option>ثاني متوسط ٢</option><option>ثاني متوسط ٣</option>
-                    <option>ثالث متوسط ١</option><option>ثالث متوسط ٢</option>
-                </select>
-            </div>
-            <input type="text" id="comm-student" placeholder="اسمك (اختياري)" style="margin-bottom: 10px;">
-            <textarea id="comm-text" placeholder="اكتب تجربتك مع التواصل الفعال..."></textarea>
-            <div class="file-upload" onclick="document.getElementById('comm-file').click()">
-                <i class="fas fa-cloud-upload-alt"></i> اضغط لرفع فيديو أو صورة تعبيرية
-                <input type="file" id="comm-file" accept="image/,video/" style="display: none;" onchange="previewMedia(event, 'comm-preview')">
-            </div>
-            <div id="comm-preview" class="preview-area"></div>
-            <button class="submit-btn" onclick="submitPost('comm')"><i class="fas fa-paper-plane"></i> شارك في قيمة التواصل</button>
-        </div>
-
-        <!-- القيمة 3: الوعي المهني -->
-        <div class="value-card" style="border-color: #FF9800;">
-            <div class="value-icon">🔭</div>
-            <div class="value-title">بصمتي المهنية</div>
-            <div class="value-desc">
-                <strong>من الدليل:</strong> "تصحيح المفاهيم السلبية نحو التخصصات والأعمال المهنية." <br>
-                <strong>المهمة:</strong> ابحث عن مهنة تعتقد أنها مهمة للمستقبل (غير الطب والهندسة)، واكتب لماذا اخترتها. يمكنك تصميم شعار لها!
-            </div>
-            <div class="select-group">
-                <select id="career-class">
-                    <option value="">-- اختر صفك --</option>
-                    <option>أول متوسط ١</option><option>أول متوسط ٢</option><option>أول متوسط ٣</option>
-                    <option>ثاني متوسط ١</option><option>ثاني متوسط ٢</option><option>ثاني متوسط ٣</option>
-                    <option>ثالث متوسط ١</option><option>ثالث متوسط ٢</option>
-                </select>
-            </div>
-            <input type="text" id="career-student" placeholder="اسمك (اختياري)" style="margin-bottom: 10px;">
-            <textarea id="career-text" placeholder="ما هي المهنة؟ ولماذا هي مهمة؟"></textarea>
-            <div class="file-upload" onclick="document.getElementById('career-file').click()">
-                <i class="fas fa-cloud-upload-alt"></i> اضغط لرفع صورة أو رسمة عن المهنة
-                <input type="file" id="career-file" accept="image/,video/" style="display: none;" onchange="previewMedia(event, 'career-preview')">
-            </div>
-            <div id="career-preview" class="preview-area"></div>
-            <button class="submit-btn" onclick="submitPost('career')"><i class="fas fa-paper-plane"></i> شارك في قيمة المهنة</button>
-        </div>
-    </div>
-
-    <!-- لوحة التحكم (برقم سري) -->
-    <div class="admin-panel">
-        <div class="admin-header">
-            <h3><i class="fas fa-lock"></i> لوحة تحكم المعلم / المرشد</h3>
-            <input type="password" id="admin-pass" placeholder="أدخل الرقم السري (1234)" value="">
-            <button onclick="checkAdminPassword()">عرض المشاركات</button>
-            <button onclick="exportData()" style="background: #4CAF50;"><i class="fas fa-download"></i> تصدير البيانات</button>
-            <span id="admin-status" style="color: red; font-size: 0.9rem;"></span>
+    <!-- بطاقة المشاركة للطالب -->
+    <div class="participation-card">
+        <div class="section-title">
+            <i class="fas fa-pen-alt" style="color: #2a5298;"></i>
+            <span>شاركنا إبداعك المهني</span>
         </div>
         
-        <div id="posts-container" class="posts-feed hidden">
-            <!-- سيتم عرض المشاركات هنا عبر JavaScript -->
+        <div class="form-group">
+            <label><i class="fas fa-user-graduate"></i> الصف الدراسي</label>
+            <select id="student-class">
+                <option value="">-- اختر صفك --</option>
+                <option>أول متوسط ١</option>
+                <option>أول متوسط ٢</option>
+                <option>أول متوسط ٣</option>
+                <option>ثاني متوسط ١</option>
+                <option>ثاني متوسط ٢</option>
+                <option>ثاني متوسط ٣</option>
+                <option>ثالث متوسط ١</option>
+                <option>ثالث متوسط ٢</option>
+            </select>
         </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-tag"></i> اختر القيمة التي تريد المشاركة فيها</label>
+            <select id="value-type" onchange="updateValueHint()">
+                <option value="">-- اختر قيمة --</option>
+                <option value="time">⏳ أنا قائد وقتي (إدارة الوقت)</option>
+                <option value="comm">🗣️ أذن صاغية ولسان فصيح (التواصل الفعال)</option>
+                <option value="career">🔭 بصمتي المهنية (الوعي المهني)</option>
+            </select>
+        </div>
+
+        <!-- وصف القيمة المختارة (يتغير حسب الاختيار) -->
+        <div id="value-description" class="value-hint">
+            <h4><i class="fas fa-info-circle"></i> نبذة عن المشاركة</h4>
+            <p id="hint-text">اختر قيمة من الأعلى لتظهر لك التعليمات</p>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-user"></i> اسمك (اختياري)</label>
+            <input type="text" id="student-name" placeholder="اكتب اسمك أو اتركه فارغاً">
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-comment-dots"></i> مشاركتك الكتابية</label>
+            <textarea id="student-text" rows="4" placeholder="اكتب هنا أفكارك أو تجربتك حسب القيمة المختارة..."></textarea>
+        </div>
+
+        <!-- رفع الملفات -->
+        <div class="file-upload" onclick="document.getElementById('media-file').click()">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>اضغط هنا لرفع صورة أو فيديو <br> <small>(يدعم الصور ومقاطع الفيديو)</small></p>
+            <input type="file" id="media-file" accept="image/,video/" style="display: none;" onchange="previewMedia(event)">
+        </div>
+        <div id="media-preview" class="preview-area"></div>
+
+        <button class="submit-btn" onclick="submitStudentPost()">
+            <i class="fas fa-paper-plane"></i> أرسل المشاركة
+        </button>
+        <div id="submit-status" class="status-message"></div>
     </div>
+
+    <!-- قسم لوحة تحكم الموجه الطلابي -->
+    <div class="admin-section">
+        <div class="admin-header">
+            <h3><i class="fas fa-user-tie"></i> لوحة تحكم الموجه الطلابي</h3>
+            <div class="admin-controls">
+                <input type="password" id="admin-password" placeholder="🔐 أدخل الرقم السري (1234)">
+                <button class="btn-primary" onclick="loginAdmin()"><i class="fas fa-key"></i> دخول</button>
+                <button class="btn-danger hidden" id="logout-btn" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> خروج</button>
+            </div>
+        </div>
+
+        <!-- محتوى لوحة التحكم (يظهر بعد الدخول) -->
+        <div id="admin-panel-body" class="admin-panel-content hidden">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h4><i class="fas fa-list-ul"></i> المشاركات المستلمة</h4>
+                <button class="btn-success" onclick="exportData()"><i class="fas fa-download"></i> تصدير البيانات</button>
+            </div>
+            <div id="posts-feed">
+                <!-- تظهر المشاركات هنا -->
+            </div>
+        </div>
+        <div id="login-status" style="margin-top: 15px; color: #dc3545;"></div>
+    </div>
+
     <div class="footer-note">
-        * البيانات محفوظة في متصفحك المحلي. الرقم السري الافتراضي: 1234
+        * البيانات محفوظة محلياً | الرقم السري الافتراضي: 1234
     </div>
 </div>
 
 <script>
-    // الرقم السري للدخول
-    const SECRET_PASS = "1234";
+    // الرقم السري
+    const SECRET = "1234";
+    let isAdminLoggedIn = false;
     
-    // تحميل البيانات من الذاكرة
-    let posts = JSON.parse(localStorage.getItem('careerGuidancePosts')) || [];
+    // تحميل المشاركات
+    let posts = JSON.parse(localStorage.getItem('careerPosts')) || [];
 
-    // معاينة الصور والفيديو قبل الرفع
-    window.previewMedia = function(event, previewId) {
-        const file = event.target.files[0];
-        const previewDiv = document.getElementById(previewId);
-        previewDiv.innerHTML = '';
+    // تحديث وصف القيمة حسب الاختيار
+    window.updateValueHint = function() {
+        const value = document.getElementById('value-type').value;
+        const hintText = document.getElementById('hint-text');
+        const hintDiv = document.getElementById('value-description');
         
+        if (value === 'time') {
+            hintText.innerHTML = '<strong>من الدليل:</strong> "إدارة الوقت أسلوب فعال لزيادة الدافعية للإنجاز." <br> 📸 <strong>المهمة:</strong> صوّر جدول مذاكرتك أو اكتب قائمة المهام التي أنجزتها اليوم.';
+            hintDiv.style.borderRightColor = '#4CAF50';
+        } else if (value === 'comm') {
+            hintText.innerHTML = '<strong>من الدليل:</strong> "استخدام لغة الجسد والإنصات وتلخيص الفكرة." <br> 🎭 <strong>المهمة:</strong> احكِ موقفاً استخدمت فيه التواصل لحل مشكلة، أو صوّر فيديو قصير عن فن الحوار.';
+            hintDiv.style.borderRightColor = '#2196F3';
+        } else if (value === 'career') {
+            hintText.innerHTML = '<strong>من الدليل:</strong> "تصحيح المفاهيم السلبية نحو التخصصات والأعمال المهنية." <br> 💼 <strong>المهمة:</strong> ابحث عن مهنة مهمة للمستقبل واكتب لماذا اخترتها.';
+            hintDiv.style.borderRightColor = '#FF9800';
+        } else {
+            hintText.innerHTML = 'اختر قيمة من الأعلى لتظهر لك التعليمات';
+            hintDiv.style.borderRightColor = '#2a5298';
+        }
+    };
+
+    // معاينة الملف
+    window.previewMedia = function(event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('media-preview');
+        preview.innerHTML = '';
         if (file) {
             const url = URL.createObjectURL(file);
             if (file.type.startsWith('image/')) {
-                previewDiv.innerHTML = <img src="${url}" alt="معاينة">;
+                preview.innerHTML = <img src="${url}" alt="معاينة">;
             } else if (file.type.startsWith('video/')) {
-                previewDiv.innerHTML = <video src="${url}" controls></video>;
+                preview.innerHTML = <video src="${url}" controls></video>;
             }
         }
     };
 
-    // تقديم المشاركة
-    window.submitPost = function(type) {
-        let className, studentName, textContent, fileInput, previewId;
-        
-        if (type === 'time') {
-            className = document.getElementById('time-class').value;
-            studentName = document.getElementById('time-student').value || 'طالب مجتهد';
-            textContent = document.getElementById('time-text').value;
-            fileInput = document.getElementById('time-file');
-            previewId = 'time-preview';
-        } else if (type === 'comm') {
-            className = document.getElementById('comm-class').value;
-            studentName = document.getElementById('comm-student').value || 'طالب مجتهد';
-            textContent = document.getElementById('comm-text').value;
-            fileInput = document.getElementById('comm-file');
-            previewId = 'comm-preview';
-        } else {
-            className = document.getElementById('career-class').value;
-            studentName = document.getElementById('career-student').value || 'طالب مجتهد';
-            textContent = document.getElementById('career-text').value;
-            fileInput = document.getElementById('career-file');
-            previewId = 'career-preview';
-        }
+    // إرسال مشاركة الطالب
+    window.submitStudentPost = function() {
+        const className = document.getElementById('student-class').value;
+        const valueType = document.getElementById('value-type').value;
+        const studentName = document.getElementById('student-name').value || 'طالب مجتهد';
+        const text = document.getElementById('student-text').value;
+        const fileInput = document.getElementById('media-file');
+        const statusDiv = document.getElementById('submit-status');
 
         if (!className) {
-            alert("الرجاء اختيار الصف أولاً");
+            alert('الرجاء اختيار الصف الدراسي');
             return;
         }
-        if (!textContent.trim() && !fileInput.files[0]) {
-            alert("الرجاء كتابة نص أو رفع ملف");
+        if (!valueType) {
+            alert('الرجاء اختيار القيمة');
+            return;
+        }
+        if (!text.trim() && !fileInput.files[0]) {
+            alert('الرجاء كتابة نص أو رفع ملف');
             return;
         }
 
-        // تجهيز الملف للعرض
         let mediaUrl = null;
         let mediaType = null;
         if (fileInput.files[0]) {
@@ -450,136 +507,150 @@
             mediaType = fileInput.files[0].type;
         }
 
-        // إنشاء كائن المشاركة
         const post = {
             id: Date.now(),
-            type: type,
-            className: className,
-            student: studentName,
-            text: textContent,
-            mediaUrl: mediaUrl,
-            mediaType: mediaType,
+            className,
+            valueType,
+            studentName,
+            text,
+            mediaUrl,
+            mediaType,
             date: new Date().toLocaleString('ar-SA')
         };
 
         posts.push(post);
-        localStorage.setItem('careerGuidancePosts', JSON.stringify(posts));
-        
+        localStorage.setItem('careerPosts', JSON.stringify(posts));
+
         // تنظيف الحقول
-        document.getElementById(${type}-class).value = '';
-        document.getElementById(${type}-student).value = '';
-        document.getElementById(${type}-text).value = '';
+        document.getElementById('student-class').value = '';
+        document.getElementById('value-type').value = '';
+        document.getElementById('student-name').value = '';
+        document.getElementById('student-text').value = '';
         fileInput.value = '';
-        document.getElementById(previewId).innerHTML = '';
-        
-        alert('تمت المشاركة بنجاح! شكراً لمشاركتك.');
-        
-        // إذا كانت لوحة التحكم مفتوحة، نقوم بتحديثها
-        if (!document.getElementById('posts-container').classList.contains('hidden')) {
-            renderAdminPosts();
+        document.getElementById('media-preview').innerHTML = '';
+        updateValueHint();
+
+        // رسالة النجاح
+        statusDiv.innerHTML = '✅ تم إرسال المشاركة للتوجيه الطلابي بنجاح! شكراً لمشاركتك.';
+        setTimeout(() => statusDiv.innerHTML = '', 4000);
+
+        // تحديث لوحة التحكم إذا كانت مفتوحة
+        if (isAdminLoggedIn) {
+            renderPosts();
         }
     };
 
-    // فحص الرقم السري
-    window.checkAdminPassword = function() {
-        const pass = document.getElementById('admin-pass').value;
-        const container = document.getElementById('posts-container');
-        const status = document.getElementById('admin-status');
-        
-        if (pass === SECRET_PASS) {
-            container.classList.remove('hidden');
-            status.innerText = '✅ تم الدخول بنجاح';
-            status.style.color = 'green';
-            renderAdminPosts();
+    // دخول الموجه
+    window.loginAdmin = function() {
+        const password = document.getElementById('admin-password').value;
+        const statusDiv = document.getElementById('login-status');
+        const panel = document.getElementById('admin-panel-body');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        if (password === SECRET) {
+            isAdminLoggedIn = true;
+            panel.classList.remove('hidden');
+            logoutBtn.classList.remove('hidden');
+            statusDiv.innerHTML = '';
+            renderPosts();
         } else {
-            container.classList.add('hidden');
-            status.innerText = '❌ رقم سري خاطئ';
-            status.style.color = 'red';
+            statusDiv.innerHTML = '❌ الرقم السري غير صحيح';
         }
+    };
+
+    // خروج الموجه
+    window.logoutAdmin = function() {
+        isAdminLoggedIn = false;
+        document.getElementById('admin-panel-body').classList.add('hidden');
+        document.getElementById('logout-btn').classList.add('hidden');
+        document.getElementById('admin-password').value = '';
     };
 
     // عرض المشاركات في لوحة التحكم
-    function renderAdminPosts() {
-        const container = document.getElementById('posts-container');
+    function renderPosts() {
+        const feed = document.getElementById('posts-feed');
         if (posts.length === 0) {
-            container.innerHTML = '<p style="text-align:center; padding:20px;">لا توجد مشاركات حتى الآن. شجّع الطلاب على المشاركة!</p>';
+            feed.innerHTML = '<p style="text-align:center; padding:30px; color:#888;">📭 لا توجد مشاركات حالياً</p>';
             return;
         }
 
-        // ترتيب المشاركات من الأحدث للأقدم
-        const sortedPosts = [...posts].reverse();
-        
         let html = '';
-        sortedPosts.forEach(post => {
-            let typeTitle = '';
-            if (post.type === 'time') typeTitle = '⏳ إدارة الوقت';
-            else if (post.type === 'comm') typeTitle = '🗣️ التواصل الفعال';
-            else typeTitle = '🔭 الوعي المهني';
-            
+        const sorted = [...posts].reverse();
+        
+        sorted.forEach(post => {
+            let valueName = '';
+            if (post.valueType === 'time') valueName = '⏳ إدارة الوقت';
+            else if (post.valueType === 'comm') valueName = '🗣️ التواصل الفعال';
+            else valueName = '🔭 الوعي المهني';
+
             let mediaHtml = '';
             if (post.mediaUrl) {
-                if (post.mediaType && post.mediaType.startsWith('image/')) {
-                    mediaHtml = <div class="media-gallery"><img src="${post.mediaUrl}" alt="مرفق"></div>;
-                } else if (post.mediaType && post.mediaType.startsWith('video/')) {
+                if (post.mediaType?.startsWith('image/')) {
+                    mediaHtml = <div class="media-gallery"><img src="${post.mediaUrl}"></div>;
+                } else if (post.mediaType?.startsWith('video/')) {
                     mediaHtml = <div class="media-gallery"><video src="${post.mediaUrl}" controls></video></div>;
                 }
             }
-            
+
             html += `
                 <div class="post-item">
-                    <div style="display: flex; justify-content: space-between;">
+                    <div class="post-header">
                         <div>
-                            <span class="post-meta"><i class="fas fa-tag"></i> ${typeTitle}</span>
-                            <span class="post-meta"><i class="fas fa-users"></i> ${post.className}</span>
-                            <span class="post-meta"><i class="fas fa-user"></i> ${post.student}</span>
-                            <span class="post-meta"><i class="fas fa-calendar"></i> ${post.date}</span>
+                            <span class="post-badge">${valueName}</span>
+                            <span class="post-meta" style="margin-right: 15px;"><i class="fas fa-users"></i> ${post.className}</span>
+                            <span class="post-meta" style="margin-right: 15px;"><i class="fas fa-user"></i> ${post.studentName}</span>
                         </div>
-                        <button class="delete-btn" onclick="deletePost(${post.id})"><i class="fas fa-trash-alt"></i></button>
+                        <div>
+                            <span class="post-meta"><i class="fas fa-calendar"></i> ${post.date}</span>
+                            <button class="delete-btn" onclick="deletePost(${post.id})"><i class="fas fa-trash-alt"></i></button>
+                        </div>
                     </div>
-                    <div class="post-content">
-                        <p style="white-space: pre-line;">${post.text}</p>
-                        ${mediaHtml}
-                    </div>
+                    <div class="post-text">${post.text.replace(/\n/g, '<br>')}</div>
+                    ${mediaHtml}
                 </div>
             `;
         });
-        container.innerHTML = html;
+        feed.innerHTML = html;
     }
 
     // حذف مشاركة
     window.deletePost = function(id) {
-        if (confirm('هل أنت متأكد من حذف هذه المشاركة؟')) {
+        if (confirm('هل أنت متأكد من حذف المشاركة؟')) {
             posts = posts.filter(p => p.id !== id);
-            localStorage.setItem('careerGuidancePosts', JSON.stringify(posts));
-            renderAdminPosts();
+            localStorage.setItem('careerPosts', JSON.stringify(posts));
+            renderPosts();
         }
     };
 
-    // تصدير البيانات (لتحليلها من قبل المرشد)
+    // تصدير البيانات
     window.exportData = function() {
         if (posts.length === 0) {
-            alert("لا توجد بيانات للتصدير");
+            alert('لا توجد بيانات للتصدير');
             return;
         }
-        let dataStr = "تقرير مبادرة التوجيه المهني - متوسطة الفضيلة الأولى\n\n";
-        posts.forEach(p => {
-            dataStr += الصف: ${p.className} | القيمة: ${p.type} | الطالب: ${p.student}\n;
-            dataStr += النص: ${p.text}\n;
-            dataStr += التاريخ: ${p.date}\n;
-            dataStr += ------------------------\n;
-        });
+        let data = "تقرير مشاركات التوجيه المهني - متوسطة الفضيلة الأولى\n";
+        data += "=".repeat(50) + "\n\n";
         
-        const blob = new Blob([dataStr], { type: 'text/plain;charset=utf-8' });
+        posts.forEach((p, i) => {
+            let type = p.valueType === 'time' ? 'إدارة الوقت' : p.valueType === 'comm' ? 'التواصل' : 'الوعي المهني';
+            data += ${i+1}. الصف: ${p.className} | القيمة: ${type} | الطالب: ${p.studentName}\n;
+            data += `   التاريخ: ${p.date}\n`;
+            data += `   النص: ${p.text}\n`;
+            data += `   ${p.mediaUrl ? 'يوجد مرفق' : 'لا يوجد مرفق'}\n`;
+            data += "-".repeat(30) + "\n";
+        });
+
+        const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = تقرير_التوجيه_المهني_${new Date().toISOString().slice(0,10)}.txt;
+        a.download = تقرير_التوجيه_${new Date().toISOString().slice(0,10)}.txt;
         a.click();
         URL.revokeObjectURL(url);
     };
 
     // تحميل أولي
-    console.log("النظام جاهز، عدد المشاركات الحالية:", posts.length);
+    updateValueHint();
 </script>
 
 </body>
